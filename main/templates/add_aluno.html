@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Aluno</title>
+    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+</head>
+<body>
+    {% include "includes/header.html" %}
+    
+    <div class="form_container">
+        <form method="POST" action="/add_aluno_view"> {% csrf_token %}
+            <div class="form-group">
+              <label for="exampleInputEmail1">Digite o nome do aluno</label>
+              <input name="nome" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <br />
+            <div class="form-group">
+              <label for="exampleInputPassword1">Insire a pontuação inicial do aluno</label>
+              <input type="number" name="pontos_iniciais" class="form-control" id="exampleInputPassword1" >
+            </div>
+            <br />
+            <br />
+            <button type="submit" class="btn btn-primary">Adicionar Aluno</button>
+            <br>
+            <a href="/" class="btn btn-danger" style="width: 70px">Voltar</a>
+          </form>
+    </div>
+
+    {% include "includes/footer.html" %}
+</body>
+</html>
